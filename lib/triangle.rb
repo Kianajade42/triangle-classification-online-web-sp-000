@@ -7,7 +7,7 @@ class Triangle
     end
 
     def kind
-      valid
+
       if sideA == sideB && sideB == sideC
         :equilateral
       elsif sideA == sideB || sideB == sideC || sideA == sideC
@@ -21,7 +21,7 @@ class Triangle
       real_triangle = [(sideA + sideB > sideC), (sideA + sideC > sideB), (sideB + sideC > sideA)]
       [sideA, sideB, sideC].each do |side|
         real_triangle << false if side <= 0
-      raise TriangleError if valid.include?(false)
+      raise TriangleError if kind.include?(false)
       end
     end
 
