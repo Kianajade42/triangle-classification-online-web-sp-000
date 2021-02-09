@@ -18,8 +18,8 @@ class Triangle
     end
 
     def equal
-      real_triangle = [(sideA + b > c), (a + c > b), (b + c > a)]
-      [a, b, c].each do |side|
+      real_triangle = [(sideA + sideB > sideC), (sideA + sideC > sideB), (sideB + sideC > sideA)]
+      [sideA, sideB, sideC].each do |side|
         real_triangle << false if side <= 0
       raise TriangleError if equal.include?(false)
       end
